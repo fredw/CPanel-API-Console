@@ -29,10 +29,10 @@ class CreateCommand extends Command
     {
         $helper = $this->getHelper('question');
 
-        $question = new Question('Inform the domain (ex: domain.com): ');
+        $question = new Question('Inform the domain <comment>(ex: domain.com):</comment> ');
         $domain = $helper->ask($input, $output, $question);
 
-        $question = new Question('Inform the account name (ex: john): ');
+        $question = new Question('Inform the account name <comment>(ex: john):</comment> ');
         $name = $helper->ask($input, $output, $question);
 
         $question = new Question('Inform the password for this account: ');

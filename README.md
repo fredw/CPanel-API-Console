@@ -1,7 +1,6 @@
 CPanel API
 ================================================================================
-CPanel API command line tool:  
-[Cpanel API 2 Documentation](https://documentation.cpanel.net/display/SDK/Guide+to+cPanel+API+2)
+CPanel API command line tool base on [Cpanel API 2](https://documentation.cpanel.net/display/SDK/Guide+to+cPanel+API+2)
 
 
 Install

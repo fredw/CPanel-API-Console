@@ -47,7 +47,7 @@ abstract class Command extends SymfonyCommand
             ]);
             $body = json_decode($response->getBody());
 
-            if (isset($body->cpanelresult->error)) {
+            if (isset($body->cpanelresult->error) && $body->cpanelresult->error != '1') {
                 throw new \Exception($body->cpanelresult->error);
             }
 
@@ -55,7 +55,7 @@ abstract class Command extends SymfonyCommand
             $data = $body->cpanelresult->data;
 
             if (isset($data[0]->status) && $data[0]->status === 0) {
-                throw new \Exception($data[0]->statusmsg);
+                throw new \Exception($data[0]->statusmsg ?: $data[0]->reason);
             }
 
             return $data;

@@ -22,6 +22,8 @@ $app->add(new CPanelAPI\MySQL\Database\DeleteCommand);
 $app->add(new CPanelAPI\MySQL\User\ListCommand);
 $app->add(new CPanelAPI\MySQL\User\CreateCommand);
 $app->add(new CPanelAPI\MySQL\User\DeleteCommand);
+$app->add(new CPanelAPI\MySQL\Permission\UpdateCommand);
+$app->add(new CPanelAPI\MySQL\Permission\DeleteCommand);
 $app->add(new CPanelAPI\SubDomain\ListCommand);
 $app->add(new CPanelAPI\SubDomain\CreateCommand);
 $app->add(new CPanelAPI\SubDomain\DeleteCommand);

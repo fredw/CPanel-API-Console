@@ -1,6 +1,6 @@
 <?php
 
-namespace CPanelAPI\MySQL\User;
+namespace CPanelAPI\MySQL\Permission;
 
 use CPanelAPI\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -8,16 +8,16 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
 
 /**
- * Create MySQL user
+ * Delete user previleges
  * @package CPanelAPI\MySQL\User
  */
-class CreateCommand extends Command
+class DeleteCommand extends Command
 {
     protected function configure()
     {
         $this
-            ->setName('mysql:user:create')
-            ->setDescription('Create a new user');
+            ->setName('mysql:permission:delete')
+            ->setDescription('Delete user previleges');
     }
 
     /**
@@ -29,15 +29,15 @@ class CreateCommand extends Command
     {
         $helper = $this->getHelper('question');
 
-        $question = new Question('Inform the user name <comment>(without CPanel user prefix. Ex: test):</comment> ');
+        $question = new Question('Inform the e user name <comment>(without CPanel user prefix. Ex: test):</comment> ');
         $user = $helper->ask($input, $output, $question);
 
-        $question = new Question('Inform the user password: ');
-        $password = $helper->ask($input, $output, $question);
+        $question = new Question('Inform the database name <comment>(without CPanel user prefix. Ex: test):</comment> ');
+        $database = $helper->ask($input, $output, $question);
 
-        $this->call($output, 'MysqlFE', 'createdbuser', [
+        $this->call($output, 'MysqlFE', 'revokedbuserprivileges', [
             'dbuser' => getenv('SSH_USER') . '_' . $user,
-            'password' => $password
+            'db' => getenv('SSH_USER') . '_' . $database
         ]);
     }
 }

@@ -29,7 +29,7 @@ class CreateCommand extends Command
     {
         $helper = $this->getHelper('question');
 
-        $question = new Question('Inform the database name (without CPanel user prefix. Ex: test): ');
+        $question = new Question('Inform the database name <comment>(without CPanel user prefix. Ex: test):</comment> ');
         $name = $helper->ask($input, $output, $question);
 
         $this->call($output, 'MysqlFE', 'createdb', [

@@ -29,7 +29,7 @@ class DeleteCommand extends Command
     {
         $helper = $this->getHelper('question');
 
-        $question = new Question('Inform the domain name (ex: static.domain.com.br): ');
+        $question = new Question('Inform the domain name <comment>(ex: static.domain.com.br):</comment> ');
         $domain = $helper->ask($input, $output, $question);
 
         $this->call($output, 'SubDomain', 'delsubdomain', [

@@ -29,7 +29,7 @@ class DeleteCommand extends Command
     {
         $helper = $this->getHelper('question');
 
-        $question = new Question('Inform the user name (without CPanel user prefix. Ex: test): ');
+        $question = new Question('Inform the user name <comment>(without CPanel user prefix. Ex: test):</comment> ');
         $user = $helper->ask($input, $output, $question);
 
         $this->call($output, 'MysqlFE', 'deletedbuser', [

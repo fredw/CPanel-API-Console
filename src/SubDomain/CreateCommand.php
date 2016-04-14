@@ -29,10 +29,10 @@ class CreateCommand extends Command
     {
         $helper = $this->getHelper('question');
 
-        $question = new Question('Inform the sub-domain name (example: static): ');
+        $question = new Question('Inform the sub-domain name <comment>(example: static):</comment> ');
         $name = $helper->ask($input, $output, $question);
 
-        $question = new Question('Inform the directory (default: public_html): ', 'public_html');
+        $question = new Question('Inform the directory <comment>(default: public_html):</comment> ', 'public_html');
         $directory = $helper->ask($input, $output, $question);
 
         $this->call($output, 'SubDomain', 'addsubdomain', [
