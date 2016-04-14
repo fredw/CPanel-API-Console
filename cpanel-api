@@ -1,0 +1,29 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+if (file_exists(__DIR__ . '/.env')) {
+    $dotenv = new \Dotenv\Dotenv(__DIR__ . '/');
+    $dotenv->overload();
+    $dotenv->required(['DOMAIN', 'CPANEL_PORT', 'SSH_USER', 'SSH_PASSWORD']);
+}
+
+$app = new Symfony\Component\Console\Application;
+$app->add(new CPanelAPI\Crontab\ListCommand);
+$app->add(new CPanelAPI\Crontab\CreateCommand);
+$app->add(new CPanelAPI\Crontab\DeleteCommand);
+$app->add(new CPanelAPI\Email\ListCommand);
+$app->add(new CPanelAPI\Email\CreateCommand);
+$app->add(new CPanelAPI\Email\DeleteCommand);
+$app->add(new CPanelAPI\MySQL\Database\ListCommand);
+$app->add(new CPanelAPI\MySQL\Database\CreateCommand);
+$app->add(new CPanelAPI\MySQL\Database\DeleteCommand);
+$app->add(new CPanelAPI\MySQL\User\ListCommand);
+$app->add(new CPanelAPI\MySQL\User\CreateCommand);
+$app->add(new CPanelAPI\MySQL\User\DeleteCommand);
+$app->add(new CPanelAPI\SubDomain\ListCommand);
+$app->add(new CPanelAPI\SubDomain\CreateCommand);
+$app->add(new CPanelAPI\SubDomain\DeleteCommand);
+
+$app->run();

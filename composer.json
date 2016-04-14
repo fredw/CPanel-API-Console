@@ -1,0 +1,17 @@
+{
+    "name": "fredwue/cpanel-api",
+    "authors": [
+        {
+            "name": "Frederico Wuerges Becker",
+            "email": "fred.wuerges@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"CPanelAPI\\": "src/"}
+    },
+    "require": {
+        "symfony/console": "^2.7",
+        "guzzlehttp/guzzle": "^6.2",
+        "vlucas/phpdotenv": "^2.2"
+    }
+}
